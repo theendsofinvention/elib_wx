@@ -16,7 +16,7 @@ from test.utils import _TestValue
                 _TestValue(attr_name='altimeter', expected_result=760),
                 _TestValue(attr_name='temperature', expected_result=13),
                 _TestValue(attr_name='wind_ground_speed', expected_result=3),
-                _TestValue(attr_name='wind_ground_dir', expected_result=60),
+                _TestValue(attr_name='wind_ground_dir', expected_result=240),
                 _TestValue(attr_name='turbulence', expected_result=0),
                 _TestValue(attr_name='fog_enabled', expected_result=False),
                 _TestValue(attr_name='fog_thickness', expected_result=1000),

@@ -8,57 +8,8 @@ import elib_wx.static
 from test.utils import _TestValue
 from hypothesis import strategies as st, given, settings
 
-_TEST_DATA = [
-    (
-        # Generic test
-        'KLAW 121053Z AUTO 06006KT 10SM OVC050 13/12 Q1013 RMK AO2 LTG DSNT W RAB0957E08B45 SLP159 P0001 T01330122',
-        (
-            _TestValue(attr_name='altimeter', expected_result=760),
-            _TestValue(attr_name='temperature', expected_result=13),
-            _TestValue(attr_name='wind_ground_speed', expected_result=3),
-            _TestValue(attr_name='wind_ground_dir', expected_result=60),
-            _TestValue(attr_name='turbulence', expected_result=0),
-            _TestValue(attr_name='fog_enabled', expected_result=False),
-            _TestValue(attr_name='fog_thickness', expected_result=1000),
-            _TestValue(attr_name='fog_visibility', expected_result=6000),
-            _TestValue(attr_name='dust_enabled', expected_result=False),
-            _TestValue(attr_name='dust_density', expected_result=3000),
-            _TestValue(attr_name='precipitation_code', expected_result=0),
-        )
-    ),
-    (
-        # Reported visibility at 5000
-        'KLAW 121053Z AUTO 06006KT 5000 -RA OVC050 13/12 Q1013 RMK AO2 LTG DSNT W RAB0957E08B45 SLP159 P0001 T01330122',
-        (
-            _TestValue(attr_name='fog_enabled', expected_result=True),
-            _TestValue(attr_name='fog_thickness', expected_result=1000),
-            _TestValue(attr_name='fog_visibility', expected_result=5000),
-        ),
-    ),
-    (
-        # Reported visibility over 6000
-        'KLAW 121053Z AUTO 06006KT 8000 -RA OVC050 13/12 Q1013 RMK AO2 LTG DSNT W RAB0957E08B45 SLP159 P0001 T01330122',
-        (
-            _TestValue(attr_name='fog_enabled', expected_result=True),
-            _TestValue(attr_name='fog_thickness', expected_result=1000),
-            _TestValue(attr_name='fog_visibility', expected_result=6000),
-        ),
-    ),
-    (
-        # Turbulence
-        'KLAW 121053Z AUTO 06006G12KT 8000 OVC050 13/12 Q1013 RMK AO2 LTG DSNT W RAB0957E08B45 SLP159 P0001 T01330122',
-        (
-            _TestValue(attr_name='turbulence', expected_result=20),
-            _TestValue(attr_name='wind_ground_speed', expected_result=3),
-        ),
-    ),
-]
-
 
 @pytest.mark.weather
-# @pytest.mark.parametrize(
-#     'metar, expected', _TEST_DATA
-# )
 def test_generate_dcs_weather(test_data):
     metar, expected = test_data
     wx = elib_wx.Weather(metar)
@@ -66,6 +17,23 @@ def test_generate_dcs_weather(test_data):
     for test_value in expected:
         expected, actual = test_value.verify(dcs_wx)
         assert expected == actual
+
+
+@pytest.mark.parametrize(
+    'wind_dir, expected',
+    [
+        (0, 180),
+        (180, 0),
+        (179, 359),
+        (180 * 4, 180),
+        (180 * 3, 0),
+    ]
+)
+@pytest.mark.weather
+def test_dcs_wind_direction(wind_dir, expected):
+    wx = elib_wx.Weather(f'KLAW 121053Z AUTO 06006KT 10SM BKN050 13/12 Q1013')
+    wx.wind_direction.set_value(wind_dir)
+    assert expected == wx.generate_dcs_weather().wind_ground_dir
 
 
 # noinspection PyProtectedMember

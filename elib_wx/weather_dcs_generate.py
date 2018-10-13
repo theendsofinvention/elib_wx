@@ -34,7 +34,7 @@ def _make_ground_wind(weather_object) -> typing.Tuple[int, int, int]:
             weather_object.wind_speed.value('m/s'),
             'wind speed at ground level',
         )
-    wind_ground_dir = weather_object.wind_direction.value()
+    wind_ground_dir = weather_object.wind_direction.reverse().value()
     return wind_ground_speed, wind_ground_dir, turbulence
 
 
@@ -43,12 +43,12 @@ def _make_wind_in_altitude(weather_object) -> typing.Tuple[int, int, int, int]:
         weather_object.wind_speed.randomize_at_2000m().value(),
         'wind speed at 2000 meters'
     )
-    wind_2000_dir = weather_object.wind_direction.randomize_at_2000m().value()
+    wind_2000_dir = weather_object.wind_direction.randomize_at_2000m().reverse().value()
     wind_8000_speed = DCSWeather.normalize_wind_speed(
         weather_object.wind_speed.randomize_at_8000m().value(),
         'wind speed at 8000 meters'
     )
-    wind_8000_dir = weather_object.wind_direction.randomize_at_8000m().value()
+    wind_8000_dir = weather_object.wind_direction.randomize_at_8000m().reverse().value()
     return wind_2000_speed, wind_2000_dir, wind_8000_speed, wind_8000_dir
 
 
