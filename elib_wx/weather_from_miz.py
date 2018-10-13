@@ -10,6 +10,7 @@ import elib_miz
 from elib_wx import Config, LOGGER, avwx, static
 from elib_wx.values.value import Altitude, Length, Pressure, Temperature, WindDirection, WindSpeed
 from elib_wx.weather_abc import WeatherABC
+from elib_wx.weather_dcs import DCSWeather
 
 
 def _make_clouds(weather_object, mission_weather, ):
@@ -184,3 +185,26 @@ def weather_from_miz_file(weather_object: WeatherABC):
     weather_object.remarks = 'NOSIG'
 
     _make_metar(weather_object)
+
+    # Store the original DCS weather so there's no discrepancies if we create a new one from this Weather
+    dcs_wx = DCSWeather(
+        altimeter=mission_weather.altimeter,
+        turbulence=mission_weather.turbulence,
+        temperature=mission_weather.temperature,
+        wind_ground_speed=mission_weather.wind_ground_speed,
+        wind_ground_dir=mission_weather.wind_ground_dir,
+        wind_2000_speed=mission_weather.wind_at2000_speed,
+        wind_2000_dir=mission_weather.wind_at2000_dir,
+        wind_8000_speed=mission_weather.wind_at8000_speed,
+        wind_8000_dir=mission_weather.wind_at8000_dir,
+        precipitation_code=mission_weather.precipitation_code,
+        cloud_density=mission_weather.cloud_density,
+        cloud_base=mission_weather.cloud_base,
+        cloud_thickness=mission_weather.cloud_thickness,
+        fog_enabled=mission_weather.fog_enabled,
+        fog_visibility=mission_weather.fog_visibility,
+        fog_thickness=mission_weather.fog_thickness,
+        dust_enabled=mission_weather.dust_enabled,
+        dust_density=mission_weather.dust_density
+    )
+    weather_object.original_dcs_weather = dcs_wx

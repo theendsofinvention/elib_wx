@@ -43,6 +43,7 @@ class WeatherABC(abc.ABC):
     other: typing.List[str]
     remarks: str
     wind_direction_is_variable: bool = False
+    original_dcs_weather: typing.Optional[DCSWeather] = None
 
     @property
     def station_icao(self):

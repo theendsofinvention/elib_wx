@@ -170,3 +170,9 @@ def test_turbulence_but_wind_speed_zero():
     assert dcs_wx.turbulence > 0
     assert 1 == dcs_wx.wind_ground_speed
     assert 1 == wx.wind_speed.value()
+
+
+@pytest.mark.weather
+def test_from_miz(caucasus_test_file):
+    wx = elib_wx.Weather(str(caucasus_test_file))
+    wx.generate_dcs_weather()

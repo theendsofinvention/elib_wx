@@ -183,6 +183,9 @@ def generate_dcs_weather(weather_object: WeatherABC) -> DCSWeather:  # pylint: d
     :return: a valid DCSWeather object
     :rtype: DCSWeather
     """
+    if weather_object.original_dcs_weather is not None:
+        return weather_object.original_dcs_weather
+
     altimeter = DCSWeather.normalize_altimeter(weather_object.altimeter.value('mmhg'))
     temperature = DCSWeather.normalize_temperature(weather_object.temperature.value('c'))
 
