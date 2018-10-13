@@ -13,7 +13,7 @@ requests = "*"
 xmltodict = "*"
 dataclasses = "*"
 inflect = "*"
-elib-miz = {editable = true, path = "f:/dev/elib_miz"}
+elib-miz = "*"
 
 [dev-packages]
 epab = "*"
