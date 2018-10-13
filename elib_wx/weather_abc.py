@@ -5,6 +5,7 @@ Abstract base class for Weather classes
 import abc
 import pprint
 import typing
+import dataclasses
 
 import elib_miz
 
@@ -16,6 +17,7 @@ from elib_wx.values.value import (
 from elib_wx.weather_dcs import DCSWeather
 
 
+@dataclasses.dataclass
 class WeatherABC(abc.ABC):
     """
     Abstract base class for Weather classes
@@ -35,12 +37,12 @@ class WeatherABC(abc.ABC):
     dew_point: Temperature
     wind_speed: WindSpeed
     wind_direction: WindDirection
-    wind_direction_is_variable: bool = False
     wind_direction_range: typing.List[WindDirection]
     wind_gust: WindSpeed
     date_time: avwx.structs.Timestamp
     other: typing.List[str]
     remarks: str
+    wind_direction_is_variable: bool = False
 
     @property
     def station_icao(self):
@@ -69,15 +71,6 @@ class WeatherABC(abc.ABC):
             avwx.core.valid_station(value)
         self._station_icao = value
         self._set_station_name()
-
-    def __repr__(self) -> str:
-        attrs = {
-            attr_name: getattr(self, attr_name)
-            for attr_name in self.__class__.__annotations__  # pylint: disable=no-member
-            if not attr_name.startswith('_')
-        }
-        nice_attrs = pprint.pformat(attrs)
-        return f'{self.__class__.__name__}(\n{nice_attrs}\n)'
 
     @abc.abstractmethod
     def apply_to_mission_dict(self, mission: elib_miz.Mission) -> elib_miz.Mission:
