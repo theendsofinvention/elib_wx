@@ -4,6 +4,7 @@ Michael duPont - michael@mdupont.com
 Original source: https://github.com/flyinactor91/AVWX-Engine
 Modified by etcher@daribouca.net
 """
+# pylint: disable=too-many-lines
 
 import logging
 import typing
@@ -349,7 +350,7 @@ VIS_PERMUTATIONS = [''.join(p) for p in permutations('P6SM')]
 VIS_PERMUTATIONS.remove('6MPS')
 
 
-def sanitize_report_list(wxdata: typing.List[str],  # pylint: disable=too-many-branches,too-many-locals
+def sanitize_report_list(wxdata: typing.List[str],  # noqa pylint: disable=too-many-branches,too-many-locals
                          remove_clr_and_skc: bool = True
                          ) -> typing.Tuple[typing.List[str], typing.List[str], str]:
     """
@@ -425,7 +426,7 @@ def sanitize_report_list(wxdata: typing.List[str],  # pylint: disable=too-many-b
 
 
 # pylint: disable=too-many-branches
-def get_altimeter(wxdata: typing.List[str], units: Units, version: str = 'NA'
+def get_altimeter(wxdata: typing.List[str], units: Units, version: str = 'NA'  # noqa
                   ) -> typing.Tuple[typing.List[str], typing.Optional[Number]]:
     """
     Returns the report list and the removed altimeter item
@@ -559,7 +560,7 @@ def get_station_and_time(wxdata: typing.List[str]) -> typing.Tuple[typing.List[s
 
 
 # pylint: disable=too-many-boolean-expressions
-def get_wind(wxdata: typing.List[str], units: Units
+def get_wind(wxdata: typing.List[str], units: Units  # noqa pylint: disable=too-many-locals
              ) -> typing.Tuple[typing.List[str],
                                typing.Optional[Number],
                                typing.Optional[Number],

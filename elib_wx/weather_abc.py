@@ -2,11 +2,9 @@
 """
 Abstract base class for Weather classes
 """
-import abc
-import pprint
 import typing
-import dataclasses
 
+import dataclasses
 import elib_miz
 
 from elib_wx import Config, avwx
@@ -18,7 +16,7 @@ from elib_wx.weather_dcs import DCSWeather
 
 
 @dataclasses.dataclass
-class WeatherABC(abc.ABC):
+class WeatherABC:
     """
     Abstract base class for Weather classes
     """
@@ -73,7 +71,6 @@ class WeatherABC(abc.ABC):
         self._station_icao = value
         self._set_station_name()
 
-    @abc.abstractmethod
     def apply_to_mission_dict(self, mission: elib_miz.Mission) -> elib_miz.Mission:
         """
         Generates a DCSWeather object from self and creates a new elib_miz.Mission object out of it
@@ -83,8 +80,8 @@ class WeatherABC(abc.ABC):
         :return: new, modified mission
         :rtype: elib_miz.Mission
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def apply_to_miz(self, source_file: str, out_file: str, *, overwrite: bool = False) -> None:
         """
         Applies this Weather object to a MIZ file
@@ -96,8 +93,8 @@ class WeatherABC(abc.ABC):
         :param overwrite: allow overwriting existing MIZ files
         :type overwrite: bool
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def generate_dcs_weather(self) -> DCSWeather:
         """
         Creates a DCSWeather from this Weather object.
@@ -107,48 +104,48 @@ class WeatherABC(abc.ABC):
         :return: a valid DCSWeather object
         :rtype: DCSWeather
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def fill_from_metar_data(self) -> None:
         """
         Creates the Weather object from METAR data
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _set_station_name(self) -> None:
         """
         Sets the name of the airport for this station from the ICAO code.
 
         If the ICAO code isn't found in the database, returns "unknown station".
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _from_icao(self):
         """
         Creates the Weather object from a given ICAO code
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _from_metar_string(self):
         """
         Creates the Weather object from a given METAR string
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _from_miz_file(self):
         """
         Creates the Weather object from an existing MIZ file
         """
+        raise NotImplementedError()
 
     @property
-    @abc.abstractmethod
     def is_cavok(self) -> bool:
         """
         :return: True if CAVOK conditions are fulfilled
         :rtype: bool
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _wind_as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -156,8 +153,8 @@ class WeatherABC(abc.ABC):
         :return: wind as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _visibility_as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -165,8 +162,8 @@ class WeatherABC(abc.ABC):
         :return: visibility as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _temperature_as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -174,8 +171,8 @@ class WeatherABC(abc.ABC):
         :return: temperature as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _dew_point_as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -183,8 +180,8 @@ class WeatherABC(abc.ABC):
         :return: dew point as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _altimeter_as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -192,15 +189,15 @@ class WeatherABC(abc.ABC):
         :return: altimeter as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _others_as_str(self) -> str:
         """
         :return: other as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _clouds_as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -208,8 +205,8 @@ class WeatherABC(abc.ABC):
         :return: cloud as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _remarks_as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -217,8 +214,8 @@ class WeatherABC(abc.ABC):
         :return: remarks as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _make_str_intro(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -226,8 +223,8 @@ class WeatherABC(abc.ABC):
         :return: intro as string
         :rtype: str
         """
+        raise NotImplementedError()
 
-    @abc.abstractmethod
     def _as_str(self, spoken: bool) -> str:
         """
         :param spoken: tailor outputs for TTS engines
@@ -235,6 +232,7 @@ class WeatherABC(abc.ABC):
         :return: weather as string
         :rtype: str
         """
+        raise NotImplementedError()
 
     def as_str(self) -> str:
         """

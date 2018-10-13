@@ -38,7 +38,7 @@ class Value:
     """
     Base class
     """
-    default_unit: str
+    default_unit: str  # noqa
     units: typing.Dict[str, Unit]
     _raw_value: float
 
