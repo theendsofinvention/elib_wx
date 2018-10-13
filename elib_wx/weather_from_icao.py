@@ -3,7 +3,6 @@
 Creates a Weather object from a given ICAO
 """
 
-
 from elib_wx import LOGGER, avwx
 from elib_wx.weather_abc import WeatherABC
 

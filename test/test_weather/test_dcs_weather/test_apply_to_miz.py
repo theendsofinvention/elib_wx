@@ -23,7 +23,7 @@ def test_apply_to_miz(test_data, wx_test_file_1):
 
 @pytest.mark.weather
 def test_apply_to_miz_file_exists(test_data, wx_test_file_1):
-    metar, expected = test_data
+    metar, _ = test_data
     wx = elib_wx.Weather(metar)
     test_miz_file = Path('./test.miz').absolute()
     test_miz_file.touch()
@@ -40,7 +40,7 @@ def test_apply_to_miz_file_exists_overwrite(wx_test_file_1):
 
 
 @pytest.mark.weather
-def test_apply_to_miz_no_source_file(wx_test_file_1):
+def test_apply_to_miz_no_source_file():
     wx = elib_wx.Weather('KLAW 121053Z AUTO 06006G12KT 8000 OVC050 13/12 Q1013')
     test_miz_file = Path('./test.miz').absolute()
     with pytest.raises(elib_wx.SourceMizFileNotFoundError):

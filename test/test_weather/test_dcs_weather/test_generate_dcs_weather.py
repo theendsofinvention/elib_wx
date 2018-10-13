@@ -1,12 +1,11 @@
 # coding=utf-8
 
 import pytest
+from hypothesis import given, settings, strategies as st
 
 import elib_wx
-from elib_wx.values.value import Temperature
 import elib_wx.static
-from test.utils import _TestValue
-from hypothesis import strategies as st, given, settings
+from elib_wx.values.value import Temperature
 
 
 @pytest.mark.weather

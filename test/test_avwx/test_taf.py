@@ -5,14 +5,14 @@ Original source: https://github.com/flyinactor91/AVWX-Engine
 Modified by etcher@daribouca.net
 """
 
-# library
-import pytest
 import json
 import os
 from copy import deepcopy
 from datetime import datetime
 from glob import glob
 
+# library
+import pytest
 from dataclasses import asdict
 
 # module

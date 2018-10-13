@@ -7,8 +7,8 @@ import logging
 import os
 import sqlite3
 import sys
-import typing
 import threading
+import typing
 
 import pkg_resources
 

@@ -3,7 +3,6 @@
 Generates a DCSWeather object from self and creates a new elib_miz.Mission object out of it
 """
 
-
 import copy
 import pprint
 

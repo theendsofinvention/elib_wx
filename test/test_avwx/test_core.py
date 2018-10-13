@@ -53,7 +53,7 @@ class TestGlobal(BaseTest):
     def test_uses_na_format(self):
         """
         METAR and TAF reports come in two flavors: North American and International
-        
+
         uses_na_format should determine the format based on the station ident using prefixes
         """
         # NA stations
@@ -574,7 +574,7 @@ class TestTaf(unittest.TestCase):
     # noinspection PyTypeChecker
     def test_find_missing_taf_times(self):
         """
-        Tests that missing forecast times can be interpretted by 
+        Tests that missing forecast times can be interpretted by
         """
         good_lines = [
             {'type': 'FROM', 'start_time': '3021', 'end_time': '3023'},
