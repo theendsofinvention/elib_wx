@@ -1,0 +1,139 @@
+[tool.epab]
+# Package name
+# value type: string
+# MANDATORY CONFIG VALUE
+package_name = "elib_wx"
+
+# Less console output
+# value type: boolean
+# This configuration is optional and comes with a default setting
+# default: False
+# quiet = 
+
+# More console output
+# value type: boolean
+# This configuration is optional and comes with a default setting
+# default: False
+# verbose = 
+
+
+[tool.epab.changelog]
+# Disable changelog building
+# value type: boolean
+# This configuration is optional and comes with a default setting
+# default: False
+# disable = 
+
+# Path to changelog file
+# value type: path
+# This configuration is optional and comes with a default setting
+# default: CHANGELOG.rst
+# file_path = 
+
+
+[tool.epab.test]
+# Additional options for test run
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: 
+# runner_options = 
+
+# Amount of \slow\ tests to show
+# value type: integer
+# This configuration is optional and comes with a default setting
+# default: 10
+# duration_count = 
+
+# Target of pytest
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: test
+# target = 
+
+# Minimal coverage to pass tests
+# value type: integer
+# This configuration is optional and comes with a default setting
+# default: 20
+# coverage_fail_under =
+
+# Timeout in seconds for pytest runner
+# value type: integer
+# This configuration is optional and comes with a default setting
+# default: 300
+timeout = 1200
+
+
+[tool.epab.lint]
+# Linter max line width
+# value type: integer
+# This configuration is optional and comes with a default setting
+# default: 120
+# line_length = 
+
+# List of comma separated files for flake8 to exclude
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: 
+# flake8_exclude = 
+
+# Additional MyPy arguments
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: 
+# mypy_args = 
+
+
+[tool.epab.freeze]
+# Main entry point for pyinstaller
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: 
+# entry_point = 
+
+# PyInstaller data-files list
+# value type: List of strings
+# This configuration is optional and comes with a default setting
+# default: []
+# data_files = 
+
+
+[tool.epab.doc]
+# Documentation repository on Github
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: 
+# repo = 
+
+# Local documentation directory
+# value type: path
+# This configuration is optional and comes with a default setting
+# default: ./doc
+# folder = 
+
+
+[tool.epab.appveyor]
+# Additional command line options for tests run on AV
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: --long
+# test_runner_options = 
+
+# List of artifacts for Appveyor
+# value type: List of strings
+# This configuration is optional and comes with a default setting
+# default: []
+artifacts = ['examples.txt']
+
+
+[tool.epab.qt]
+# Qt resource file (.qrc) location
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: 
+# res_src = 
+
+# Compiled Qt resource file (.py) target location
+# value type: string
+# This configuration is optional and comes with a default setting
+# default: 
+# res_tgt = 
