@@ -13,6 +13,7 @@ requirements = [
     'xmltodict',
     'dataclasses',
     'inflect',
+    'elib-miz',
 ]
 test_requirements = [
     'epab',
