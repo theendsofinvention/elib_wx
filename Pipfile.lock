@@ -41,10 +41,10 @@
         },
         "elib-miz": {
             "hashes": [
-                "sha256:74d3a810e0d1d72b4d49f74ac3163ad3deee7d61118ce764938a506a837308db"
+                "sha256:ed4b46812ab9ea3e0a79a139863f6d955774fd1226b8300affb0fde5ac6af500"
             ],
             "index": "pypi",
-            "version": "==2018.10.13.1"
+            "version": "==2018.10.21.1"
         },
         "idna": {
             "hashes": [

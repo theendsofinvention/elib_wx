@@ -2,7 +2,7 @@
 certifi==2018.10.15
 chardet==3.0.4
 dataclasses==0.6
-elib-miz==2018.10.13.1
+elib-miz==2018.10.21.1
 idna==2.7
 inflect==1.0.1
 natsort==5.4.1
