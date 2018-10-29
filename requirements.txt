@@ -6,7 +6,7 @@ elib-miz==2018.10.21.1
 idna==2.7
 inflect==1.0.1
 natsort==5.4.1
-python-dateutil==2.7.3
+python-dateutil==2.7.5
 requests==2.20.0
 six==1.11.0
 urllib3==1.24
