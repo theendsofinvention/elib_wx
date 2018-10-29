@@ -107,7 +107,7 @@ def test_from_miz_wx1(wx_test_file_1):
     assert ['PO', 'RA'] == wx.other
     assert f'XXXX 080000Z 27710KTS 4710M PO RA SCT016 10/{wx.dew_point.value():02d} Q0987 NOSIG' == wx.raw_metar_str
     assert 'Weather for unknown airport (XXXX) on Wednesday the 01st of June at 0800 zulu. ' \
-           'Wind 277 10kts (gusting 14kts knots). ' \
+           'Wind 277 10kts (gusting 14kts). ' \
            'Visibility 4710m, 2.93SM. ' \
            'Temperature 10°C, 50°F. ' \
            f'Dew point {wx.dew_point.value()}°C, {wx.dew_point.value(unit="f")}°F. ' \
@@ -117,7 +117,7 @@ def test_from_miz_wx1(wx_test_file_1):
     dew_point_c = _CONVERT.number_to_words(wx.dew_point.value(), group=1).replace(',', '')
     dew_point_f = _CONVERT.number_to_words(wx.dew_point.value(unit='f'), group=1).replace(',', '')
     assert 'Weather for unknown airport (XXXX) on Wednesday the first of June at zero eight zero zero zulu. ' \
-           'Wind two seven seven one zero knots (gusting one four knots knots). ' \
+           'Wind two seven seven one zero knots (gusting one four knots). ' \
            'Visibility four thousand seven hundred and ten meters, two point nine three miles. ' \
            'Temperature one zero degrees celsius, five zero degrees fahrenheit. ' \
            f'Dew point {dew_point_c} degrees celsius, {dew_point_f} degrees fahrenheit. ' \
@@ -149,7 +149,7 @@ def test_from_miz_thunderstorm(wx_test_file_thunderstorm):
     assert ['DS', '+RATS'] == wx.other
     assert f'XXXX 080000Z 27710KTS 4710M DS +RATS OVC016 10/{wx.dew_point.value():02d} Q0987 NOSIG' == wx.raw_metar_str
     assert 'Weather for unknown airport (XXXX) on Wednesday the 01st of June at 0800 zulu. ' \
-           'Wind 277 10kts (gusting 14kts knots). ' \
+           'Wind 277 10kts (gusting 14kts). ' \
            'Visibility 4710m, 2.93SM. ' \
            'Temperature 10°C, 50°F. ' \
            f'Dew point {wx.dew_point.value()}°C, {wx.dew_point.value(unit="f")}°F. ' \
@@ -159,7 +159,7 @@ def test_from_miz_thunderstorm(wx_test_file_thunderstorm):
     dew_point_c = _CONVERT.number_to_words(wx.dew_point.value(), group=1).replace(',', '')
     dew_point_f = _CONVERT.number_to_words(wx.dew_point.value(unit='f'), group=1).replace(',', '')
     assert 'Weather for unknown airport (XXXX) on Wednesday the first of June at zero eight zero zero zulu. ' \
-           'Wind two seven seven one zero knots (gusting one four knots knots). ' \
+           'Wind two seven seven one zero knots (gusting one four knots). ' \
            'Visibility four thousand seven hundred and ten meters, two point nine three miles. ' \
            'Temperature one zero degrees celsius, five zero degrees fahrenheit. ' \
            f'Dew point {dew_point_c} degrees celsius, {dew_point_f} degrees fahrenheit. ' \
@@ -192,7 +192,7 @@ def test_from_miz_snow(wx_test_file_snow):
     assert f'XXXX 080000Z 27710KTS 4710M DS SN FZ OVC016 ' \
            f'M-7.6/M{wx.dew_point.value():02d} Q0987 NOSIG' == wx.raw_metar_str
     assert 'Weather for unknown airport (XXXX) on Saturday the 01st of January at 0800 zulu. ' \
-           'Wind 277 10kts (gusting 14kts knots). ' \
+           'Wind 277 10kts (gusting 14kts). ' \
            'Visibility 4710m, 2.93SM. ' \
            'Temperature -7.6°C, 18°F. ' \
            f'Dew point {wx.dew_point.value()}°C, {wx.dew_point.value(unit="f")}°F. ' \
@@ -202,7 +202,7 @@ def test_from_miz_snow(wx_test_file_snow):
     dew_point_c = _CONVERT.number_to_words(wx.dew_point.value(), group=1).replace(',', '')
     dew_point_f = _CONVERT.number_to_words(wx.dew_point.value(unit='f'), group=1).replace(',', '')
     assert 'Weather for unknown airport (XXXX) on Saturday the first of January at zero eight zero zero zulu. ' \
-           'Wind two seven seven one zero knots (gusting one four knots knots). ' \
+           'Wind two seven seven one zero knots (gusting one four knots). ' \
            'Visibility four thousand seven hundred and ten meters, two point nine three miles. ' \
            'Temperature minus seven point six degrees celsius, one eight degrees fahrenheit. ' \
            f'Dew point {dew_point_c} degrees celsius, {dew_point_f} degrees fahrenheit. ' \
@@ -234,7 +234,7 @@ def test_from_miz_snowstorm(wx_test_file_snowstorm):
     assert f'XXXX 080000Z 27710KTS 4710M DS +BLSN FZ OVC016 ' \
            f'M-7.6/M{wx.dew_point.value():02d} Q0987 NOSIG' == wx.raw_metar_str
     assert 'Weather for unknown airport (XXXX) on Saturday the 01st of January at 0800 zulu. ' \
-           'Wind 277 10kts (gusting 14kts knots). ' \
+           'Wind 277 10kts (gusting 14kts). ' \
            'Visibility 4710m, 2.93SM. ' \
            'Temperature -7.6°C, 18°F. ' \
            f'Dew point {wx.dew_point.value()}°C, {wx.dew_point.value(unit="f")}°F. ' \
@@ -244,7 +244,7 @@ def test_from_miz_snowstorm(wx_test_file_snowstorm):
     dew_point_c = _CONVERT.number_to_words(wx.dew_point.value(), group=1).replace(',', '')
     dew_point_f = _CONVERT.number_to_words(wx.dew_point.value(unit='f'), group=1).replace(',', '')
     assert 'Weather for unknown airport (XXXX) on Saturday the first of January at zero eight zero zero zulu. ' \
-           'Wind two seven seven one zero knots (gusting one four knots knots). ' \
+           'Wind two seven seven one zero knots (gusting one four knots). ' \
            'Visibility four thousand seven hundred and ten meters, two point nine three miles. ' \
            'Temperature minus seven point six degrees celsius, one eight degrees fahrenheit. ' \
            f'Dew point {dew_point_c} degrees celsius, {dew_point_f} degrees fahrenheit. ' \
@@ -276,7 +276,7 @@ def test_from_miz_heavy_dust(wx_test_file_heavy_dust):
     assert f'XXXX 080000Z 27710KTS 4710M DS RA SCT016 ' \
            f'10/{wx.dew_point.value():02d} Q0987 NOSIG' == wx.raw_metar_str
     assert 'Weather for unknown airport (XXXX) on Wednesday the 01st of June at 0800 zulu. ' \
-           'Wind 277 10kts (gusting 14kts knots). ' \
+           'Wind 277 10kts (gusting 14kts). ' \
            'Visibility 4710m, 2.93SM. ' \
            'Temperature 10°C, 50°F. ' \
            f'Dew point {wx.dew_point.value()}°C, {wx.dew_point.value(unit="f")}°F. ' \
@@ -288,7 +288,7 @@ def test_from_miz_heavy_dust(wx_test_file_heavy_dust):
     dew_point_c = _CONVERT.number_to_words(wx.dew_point.value(), group=1).replace(',', '')
     dew_point_f = _CONVERT.number_to_words(wx.dew_point.value(unit='f'), group=1).replace(',', '')
     assert 'Weather for unknown airport (XXXX) on Wednesday the first of June at zero eight zero zero zulu. ' \
-           'Wind two seven seven one zero knots (gusting one four knots knots). ' \
+           'Wind two seven seven one zero knots (gusting one four knots). ' \
            'Visibility four thousand seven hundred and ten meters, two point nine three miles. ' \
            'Temperature one zero degrees celsius, five zero degrees fahrenheit. ' \
            f'Dew point {dew_point_c} degrees celsius, {dew_point_f} degrees fahrenheit. ' \
