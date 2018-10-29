@@ -562,12 +562,10 @@
         },
         "pytest-ordering": {
             "hashes": [
-                "sha256:673589dfd08599eadda4c3974df82dd12a1bf6754ee53263356443fa429fdf22",
-                "sha256:98ae00eaa1f4c25570327952016f17a0c4dcb2717d9c98766d071aefe629e2ff",
-                "sha256:cb24417cf5a742aa9c65a43c785e935b28e8b55d7a807809610318e90ea83aef"
+                "sha256:3f314a178dbeb6777509548727dc69edf22d6d9a2867bf2d310ab85c403380b6"
             ],
             "index": "pypi",
-            "version": "==0.5"
+            "version": "==0.6"
         },
         "pytest-pycharm": {
             "hashes": [
