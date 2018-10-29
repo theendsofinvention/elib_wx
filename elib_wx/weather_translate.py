@@ -36,7 +36,7 @@ def wind(weather_object: WeatherABC, spoken: bool) -> str:
 
     if weather_object.wind_gust.value() > 0:
         gust_speed = weather_object.wind_gust.to_string(unit='kt', spoken=spoken)
-        wind_speed += f' (gusting {gust_speed} knots)'
+        wind_speed += f' (gusting {gust_speed})'
 
     return f'Wind {wind_dir} {wind_speed}.'
 
