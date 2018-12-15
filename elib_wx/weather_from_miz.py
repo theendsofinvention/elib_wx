@@ -116,7 +116,7 @@ def _make_metar(weather_object):
     _metar_clouds = f'{weather_object.cloud_layers[0].repr}' if weather_object.cloud_layers else ''
     _minus = 'M' if weather_object.temperature.value() < 0 else ''
     _metar_temperature = f'{_minus}{weather_object.temperature.value():02}/' \
-                         f'{_minus}{weather_object.dew_point.value():02}'
+        f'{_minus}{weather_object.dew_point.value():02}'
     _metar_pressure = f'Q{weather_object.altimeter.value(unit="hpa"):04d}'
     _metar_remarks = weather_object.remarks
 
