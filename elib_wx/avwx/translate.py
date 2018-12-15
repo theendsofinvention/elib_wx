@@ -260,7 +260,7 @@ def wind_shear(shear: str, unit_alt: str = 'ft', unit_wind: str = 'kt', spoken: 
         return ''
     shear_list = shear[2:].rstrip(unit_wind.upper()).split('/')
     wdir = core.spoken_number(shear_list[1][:3]) if spoken else shear_list[1][:3]
-    return f'Wind shear {int(shear_list[0])*100}{unit_alt} from {wdir} at {shear_list[1][3:]}{unit_wind}'
+    return f'Wind shear {int(shear_list[0]) * 100}{unit_alt} from {wdir} at {shear_list[1][3:]}{unit_wind}'
 
 
 def turb_ice(turbice: typing.List[str], unit: str = 'ft') -> str:
