@@ -23,11 +23,9 @@ class InvalidRequestError(ELIBWxError):
     """
     Unable to fetch data
     """
-    pass
 
 
 class SourceError(ELIBWxError):
     """
     Source servers returned an error code
     """
-    pass
